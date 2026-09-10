@@ -45,7 +45,7 @@ const Flipbook = memo(function Flipbook({ pages, theme }: { pages: Page[], theme
   useEffect(() => {
     const autoFlipTimer = window.setInterval(() => {
       setActiveIndex(currentIndex => currentIndex >= pages.length - 1 ? 0 : currentIndex + 1);
-    }, 5000);
+    }, 10000);
 
     return () => window.clearInterval(autoFlipTimer);
   }, [pages.length]);

@@ -1,0 +1,6 @@
+{
+  "name": "Cuốn Sách Kỷ Niệm",
+  "description": "Trang web xem lại ảnh kỷ niệm với hiệu ứng lật sách 3D, âm nhạc hoài niệm và giao diện tối giản.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

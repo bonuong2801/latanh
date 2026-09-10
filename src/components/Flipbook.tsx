@@ -42,6 +42,14 @@ const Flipbook = memo(function Flipbook({ pages, theme }: { pages: Page[], theme
     setActiveIndex(0);
   }, [pages]);
 
+  useEffect(() => {
+    const autoFlipTimer = window.setInterval(() => {
+      setActiveIndex(currentIndex => currentIndex >= pages.length - 1 ? 0 : currentIndex + 1);
+    }, 5000);
+
+    return () => window.clearInterval(autoFlipTimer);
+  }, [pages.length]);
+
   return (
     <div 
       className="relative w-full max-w-sm md:max-w-4xl aspect-[3/4] md:aspect-[8/5] mx-auto perspective-1500 mt-4 mb-8"

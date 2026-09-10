@@ -18,16 +18,24 @@ export default function App() {
 
   // Thiết lập src ban đầu và thử autoplay
   useEffect(() => {
+    const startAudio = () => {
+      if (!audioRef.current) return;
+
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch(() => {
+        setIsPlaying(false);
+      });
+    };
+
     if (audioRef.current) {
       audioRef.current.src = appData.oldMemories.musicUrl;
       // Thử autoplay, trình duyệt có thể chặn nếu chưa có tương tác
-      audioRef.current.play().then(() => {
-        setIsPlaying(true);
-      }).catch((e) => {
-        console.log("Trình duyệt chặn autoplay, người dùng cần tự bật nhạc:", e);
-        setIsPlaying(false);
-      });
+      startAudio();
     }
+
+    window.addEventListener('pointerdown', startAudio, { once: true });
+    return () => window.removeEventListener('pointerdown', startAudio);
   }, []);
 
   // Tự động đổi nhạc khi chuyển tab

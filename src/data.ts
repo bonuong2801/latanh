@@ -3,7 +3,7 @@ export const appData = {
     title: "Ký ức ngày xưa",
     description: "Những năm tháng không thể nào quên",
     musicUrl: "/music/old.mp3",
-    pages: Array.from({ length: 29 }, (_, i) => ({
+    pages: Array.from({ length: 36 }, (_, i) => ({
       id: `old-${i + 1}`,
       imageUrl: `/photos/old/${i + 1}.jpg`,
       caption: ""
